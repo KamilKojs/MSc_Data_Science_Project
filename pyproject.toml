@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "Thesis project"
+version = "1.0.0"
+description = "Dependencies for Thesis project"
+authors = ["Kamil Kojs"]
+packages = [{ include = "src" },]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "==3.10.12"
+setuptools = "^67.8.0"
+scikit-learn = ">=1.2.0"
+matplotlib = ">=3.5.0"
+numpy = ">=1.24.0"
+toml = ">=0.10.2"
+tqdm = ">=4.60.0"
+pandas = ">=2.0.0"
+xgboost = ">=2.0.0"
+plotly = ">=5.16.0"
+nbformat = ">=4.2.0" 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.0"
+
+[build-system]
+requires = ["setuptools", "wheel", "poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.format]
+max-line-length = "120"
+
+[tool.isort]
+profile = "black"
