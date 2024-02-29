@@ -44,6 +44,7 @@ def make_prediction(model_id: int):
     input_tensor = preprocess(image)
     # Add batch dimension
     input_batch = input_tensor.unsqueeze(0)
+    input_batch = input_batch.to('cuda:0')
 
     if current_model_on_gpu != model_id:
         # unload previous model
