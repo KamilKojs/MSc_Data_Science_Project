@@ -9,7 +9,6 @@ def main():
     save_evaluation_url = "http://localhost:8555/save_evaluation_results"
     df = pd.read_csv("evaluation_data.csv")
 
-    counter = 0
     for index, row in df.iterrows():
         cols_with_1 = row[row == 1].index.tolist()
         second = int(row['second'])
@@ -19,11 +18,8 @@ def main():
             "second": second
         }
         response = requests.post(predict_url, json=payload)
-        print(f"predictios for row {index}: done")
-        counter += 1
-        if counter > 1000:
-            break
     
+    print("All requests processed. Evaluation finished")
     end_time = time.time()
     payload = {
         "evaluation_time": end_time - start_time

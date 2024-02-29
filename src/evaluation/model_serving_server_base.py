@@ -12,6 +12,7 @@ evaluation_results = {}
 dl_models = {}
 workload_ids = [1, 7, 21, 31, 37, 50, 55, 56, 69, 71]
 image_path = "sample_image.jpg"
+current_model_on_gpu = 1
 
 image = Image.open(image_path)
 preprocess = transforms.Compose([
@@ -23,8 +24,10 @@ preprocess = transforms.Compose([
 
 for i in workload_ids:
     dl_models[i] = models.resnet152()
-    dl_models[i].load_state_dict(torch.load(f'../../data/DL_model_files/resnet152_weights_{i}.pth'))
+    dl_models[i].load_state_dict(torch.load(f'resnet152_weights_{i}.pth'))
     dl_models[i].eval()
+
+dl_models[current_model_on_gpu].to("cuda:0")
 
 
 class DataPayload(BaseModel):
@@ -41,8 +44,12 @@ def make_prediction(model_id: int):
     # Add batch dimension
     input_batch = input_tensor.unsqueeze(0)
 
-    # move model to GPU
-    # TODO
+    if current_model_on_gpu != model_id:
+        # unload previous model
+        dl_models[current_model_on_gpu].to("cpu")
+        # move desired model to GPU
+        dl_models[model_id].to("cuda:0")
+        current_model_on_gpu = model_id
 
     # Perform inference
     with torch.no_grad():
