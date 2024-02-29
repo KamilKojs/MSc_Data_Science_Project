@@ -105,7 +105,7 @@ def save_results(data: EvaluationEndPayload):
     with open("evaluation_results.txt", "a") as f:
         for second, col_times in evaluation_results.items():
             for col, metadata in col_times.items():
-                f.write(f"{second},{col},{metadata["processing_time"]},{metadata["workload_id_to_preload"]}\n")
+                f.write(f"{second},{col},{metadata['processing_time']},{metadata['workload_id_to_preload']}\n")
 
     with open("evaluation_time.txt", "a") as f:
         f.write(f"Evaluation time (full experiment time): {evaluation_time}\n")
