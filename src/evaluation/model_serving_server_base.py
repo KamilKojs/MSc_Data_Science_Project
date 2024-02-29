@@ -22,8 +22,8 @@ preprocess = transforms.Compose([
 ])
 
 for i in workload_ids:
-    dl_models[i] = models.resnet50()
-    dl_models[i].load_state_dict(torch.load(f'../../data/DL_model_files/resnet50_weights_{i}.pth'))
+    dl_models[i] = models.resnet152()
+    dl_models[i].load_state_dict(torch.load(f'../../data/DL_model_files/resnet152_weights_{i}.pth'))
     dl_models[i].eval()
 
 
