@@ -40,6 +40,7 @@ class EvaluationEndPayload(BaseModel):
 
 
 def make_prediction(model_id: int):
+    global current_model_on_gpu
     input_tensor = preprocess(image)
     # Add batch dimension
     input_batch = input_tensor.unsqueeze(0)
