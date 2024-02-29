@@ -1,0 +1,4 @@
+experiment1:
+    using time series models and picking prediction with the highest probability,
+    I actually picked prediction where any number in proba was the highest so
+    it might have been wrong, I might have been picking preds that indicate negative proba...
