@@ -4,3 +4,11 @@ experiment1:
     it might have been wrong, I might have been picking preds that indicate negative proba...
 experiment2:
     fixed the bug in experiment1 and rerun
+
+
+next steps:
+ - discuss on how much training data is needed to use such system
+ - increase logging (each step separately), time breakdown, scenarios if model is kicked out in case of wrong prediction
+ - more analysis on intuition on time series models performance, why hit miss increases time for prediction
+ - experiment for multiple models on single GPU (or multiple GPU's), while still doing serving one by one
+
