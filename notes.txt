@@ -2,13 +2,22 @@ baseline:
     Loading the models to GPU and keeping them on GPU after the request, so if the same model is requested
     next time the request processing time is much faster
 baseline2:
-    The same as baseline but unloading the model from GPU every time after request, increased logging
+    unloading the model from GPU every time after request, increased logging
+    baseline2 results file: second, workload_id, total inference time, model_to_gpu_time, inference_time, unload_from_gpu_time
+baseline3:
+    same as baseline but increased logging
+    baseline3 results file: second, workload_id, total inference time, model_to_gpu_time, inference_time, unload_from_gpu_time
+    In this case the sequence order is unload_from_gpu_time -> model_to_gpu_time
 experiment1:
     using time series models and picking prediction with the highest probability,
     I actually picked prediction where any number in proba was the highest so
     it might have been wrong, I might have been picking preds that indicate negative proba...
 experiment2:
     fixed the bug in experiment1 and rerun
+experiment3:
+    using time series models and picking prediction with the highest probability, increased logging
+    experiment3 results file: second, workload_id, total inference time, workload_id_to_preload, model_on_gpu_before_preloading, manager_time_series_time, model_to_gpu_time, inference_time, unload_from_gpu_time
+    In this case the sequence order is unload_from_gpu_time -> model_to_gpu_time
 
 
 next steps:
@@ -22,3 +31,5 @@ Experimentation framework:
  - 11 cores - 10 for loading manager, 1 per each time series model, and 1 last core for serving server
  - RAM - undefined - as much as needed to load all ResNet152 models into RAM and run manager and server components
  - metric - latency for serving
+
+ - baseline takes 10,7GB of RAM
