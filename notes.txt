@@ -5,7 +5,9 @@ baseline2:
     unloading the model from GPU every time after request, increased logging
     baseline2 results file: second, workload_id, total inference time, model_to_gpu_time, inference_time, unload_from_gpu_time
 baseline3:
-    same as baseline but increased logging
+    same as baseline but increased logging:
+    Loading the models to GPU and keeping them on GPU after the request, so if the same model is requested
+    next time the request processing time is much faster
     baseline3 results file: second, workload_id, total inference time, model_to_gpu_time, inference_time, unload_from_gpu_time
     In this case the sequence order is unload_from_gpu_time -> model_to_gpu_time
 experiment1:
@@ -33,3 +35,4 @@ Experimentation framework:
  - metric - latency for serving
 
  - baseline takes 10,7GB of RAM
+ - nvidia-smi memory output for baseline: 1041MiB / 40960MiB
