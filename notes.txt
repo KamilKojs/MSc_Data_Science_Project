@@ -20,6 +20,9 @@ experiment3:
     using time series models and picking prediction with the highest probability, increased logging
     experiment3 results file: second, workload_id, total inference time, workload_id_to_preload, model_on_gpu_before_preloading, manager_time_series_time, model_to_gpu_time, inference_time, unload_from_gpu_time
     In this case the sequence order is unload_from_gpu_time -> model_to_gpu_time
+experiment4:
+    the same as experiment 3 but loading 4 models into GPU at the same time, so serving 4 models simultaneously
+    experiment4 results file: second, workload_id, total inference time, workload_id_to_preload_1, workload_id_to_preload_2, workload_id_to_preload_3, workload_id_to_preload_4, model_on_gpu_before_preloading_1, model_on_gpu_before_preloading_2, model_on_gpu_before_preloading_3, model_on_gpu_before_preloading_4, manager_time_series_time, model_to_gpu_time, inference_time, unload_from_gpu_time
 
 
 next steps:
@@ -36,3 +39,4 @@ Experimentation framework:
 
  - baseline takes 10,7GB of RAM
  - nvidia-smi memory output for baseline: 1041MiB / 40960MiB
+ - experiment 3 takes 12.1GB of RAM
