@@ -1,3 +1,8 @@
+baseline:
+    Loading the models to GPU and keeping them on GPU after the request, so if the same model is requested
+    next time the request processing time is much faster
+baseline2:
+    The same as baseline but unloading the model from GPU every time after request, increased logging
 experiment1:
     using time series models and picking prediction with the highest probability,
     I actually picked prediction where any number in proba was the highest so
@@ -12,3 +17,8 @@ next steps:
  - more analysis on intuition on time series models performance, why hit miss increases time for prediction
  - experiment for multiple models on single GPU (or multiple GPU's), while still doing serving one by one
 
+Experimentation framework:
+ - hypothesis: implementation of manager component decreases average latency time for serving system
+ - 11 cores - 10 for loading manager, 1 per each time series model, and 1 last core for serving server
+ - RAM - undefined - as much as needed to load all ResNet152 models into RAM and run manager and server components
+ - metric - latency for serving
