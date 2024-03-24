@@ -40,3 +40,6 @@ Experimentation framework:
  - baseline takes 10,7GB of RAM
  - nvidia-smi memory output for baseline: 1041MiB / 40960MiB
  - experiment 3 takes 12.1GB of RAM
+
+ - experiment 4 takes 12.9GB of RAM
+ - nvidia-smi memory output for experiment 4: 1749MiB / 40960MiB
