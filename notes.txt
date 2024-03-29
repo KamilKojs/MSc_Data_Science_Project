@@ -43,3 +43,15 @@ Experimentation framework:
 
  - experiment 4 takes 12.9GB of RAM
  - nvidia-smi memory output for experiment 4: 1749MiB / 40960MiB
+
+
+Discussion and future work:
+ - time series models performance Discussion
+ - how much data is needed to train those time series models
+ - retraining aspect over time
+ - quality of service, discuss aspects of how much time each customer might want to wait for request processing
+
+
+ - future work - check if similar results on different system traces (different datasets apart from Azure trace dataset)
+ - future work - check how a system with multiple GPUs would perform - allows also for caching of unused models already on GPU
+ 
