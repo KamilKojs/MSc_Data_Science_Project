@@ -1,11 +1,6 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import uvicorn
 import time
 import torch
 import torchvision.models as models
-import torchvision.transforms as transforms
-from PIL import Image
 
 model = models.resnet152()
 model.load_state_dict(torch.load(f'resnet152_weights_1.pth'))
