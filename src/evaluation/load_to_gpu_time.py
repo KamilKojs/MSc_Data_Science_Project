@@ -13,7 +13,7 @@ print(f"time to cuda: {end_time-start_time}")
 print(torch.cuda.memory_allocated())
 
 start_time = time.time()
-del model
+model.to("cpu")
 end_time = time.time()
 print(f"time deletion: {end_time-start_time}")
 print(torch.cuda.memory_allocated())
